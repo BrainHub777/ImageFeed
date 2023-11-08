@@ -7,14 +7,13 @@
 
 import UIKit
 
-class ImagesListViewController: UIViewController {
+final class ImagesListViewController: UIViewController {
 
     @IBOutlet private var tableView: UITableView!
     private let photosName: [String] = Array(0..<20).map{"\($0)"}
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
-        // Do any additional setup after loading the view.
     }
     
     private lazy var dateFormatter: DateFormatter = {
@@ -23,15 +22,6 @@ class ImagesListViewController: UIViewController {
         formatter.timeStyle = .none
         return formatter
     }()
-    
-    func configCell(for cell: ImagesListCell, with indexPath: IndexPath) {
-        //let image: UIImage
-        guard let image = UIImage(named: "\(indexPath.row)") else {return}
-        cell.cellImage.image = image
-        cell.dateLable.text = dateFormatter.string(from: Date())
-        let buttonImage = indexPath.row % 2 == 1 ? UIImage(named: "NoActive") : UIImage(named: "Active")
-        cell.likeButton.setImage(buttonImage, for: .normal) 
-    }
 }
 
 extension ImagesListViewController: UITableViewDataSource {
@@ -46,6 +36,13 @@ extension ImagesListViewController: UITableViewDataSource {
         }
         configCell(for: imageListCell, with: indexPath)
         return imageListCell
+    }
+    func configCell(for cell: ImagesListCell, with indexPath: IndexPath) {
+        guard let image = UIImage(named: "\(indexPath.row)") else {return}
+        cell.cellImage.image = image
+        cell.dateLable.text = dateFormatter.string(from: Date())
+        let buttonImage = indexPath.row % 2 == 1 ? UIImage(named: "NoActive") : UIImage(named: "Active")
+        cell.likeButton.setImage(buttonImage, for: .normal)
     }
 }
 

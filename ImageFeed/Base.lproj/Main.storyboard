@@ -21,13 +21,23 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" name="YP Black"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImagesListCell" rowHeight="141" id="Baq-df-cCw" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImagesListCell" rowHeight="141" id="Baq-df-cCw" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Baq-df-cCw" id="n0D-Qd-UxO">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="141"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETt-P9-vnI" customClass="GradientView" customModule="ImageFeed" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="4" width="361" height="133"/>
+                                                    <color key="backgroundColor" red="0.68235294120000001" green="0.68627450980000004" blue="0.70588235290000001" alpha="0.28621688740000001" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="G2q-mx-Oho">
                                                     <rect key="frame" x="16" y="4" width="361" height="133"/>
                                                     <userDefinedRuntimeAttributes>
@@ -59,16 +69,23 @@
                                             </subviews>
                                             <color key="backgroundColor" name="YP Black"/>
                                             <constraints>
+                                                <constraint firstItem="ETt-P9-vnI" firstAttribute="height" secondItem="G2q-mx-Oho" secondAttribute="height" id="29z-ug-9mM"/>
                                                 <constraint firstItem="G2q-mx-Oho" firstAttribute="leading" secondItem="n0D-Qd-UxO" secondAttribute="leading" constant="16" id="3cy-iL-GNi"/>
+                                                <constraint firstItem="ETt-P9-vnI" firstAttribute="leading" secondItem="n0D-Qd-UxO" secondAttribute="leading" constant="16" id="G3I-70-o9c"/>
+                                                <constraint firstItem="ETt-P9-vnI" firstAttribute="top" secondItem="n0D-Qd-UxO" secondAttribute="top" constant="4" id="Mwl-rF-PcD"/>
+                                                <constraint firstAttribute="bottom" secondItem="ETt-P9-vnI" secondAttribute="bottom" constant="4" id="Qnm-jt-OFE"/>
                                                 <constraint firstItem="rli-5n-N92" firstAttribute="leading" secondItem="G2q-mx-Oho" secondAttribute="leading" constant="8" id="VTO-80-Ezd"/>
+                                                <constraint firstAttribute="trailing" secondItem="ETt-P9-vnI" secondAttribute="trailing" constant="16" id="eCc-Dq-ewF"/>
                                                 <constraint firstItem="z0c-p3-29q" firstAttribute="top" secondItem="G2q-mx-Oho" secondAttribute="top" id="fiS-Md-bUm"/>
                                                 <constraint firstItem="z0c-p3-29q" firstAttribute="trailing" secondItem="G2q-mx-Oho" secondAttribute="trailing" id="gYF-EA-Mu3"/>
+                                                <constraint firstItem="ETt-P9-vnI" firstAttribute="width" secondItem="G2q-mx-Oho" secondAttribute="width" id="ok6-xb-Xe5"/>
                                                 <constraint firstItem="G2q-mx-Oho" firstAttribute="top" secondItem="n0D-Qd-UxO" secondAttribute="top" constant="4" id="rdW-Ki-SGx"/>
                                                 <constraint firstAttribute="trailing" secondItem="G2q-mx-Oho" secondAttribute="trailing" constant="16" id="sWO-Vq-cc6"/>
                                                 <constraint firstAttribute="bottom" secondItem="G2q-mx-Oho" secondAttribute="bottom" constant="4" id="tcU-Va-gKI"/>
                                                 <constraint firstItem="rli-5n-N92" firstAttribute="bottom" secondItem="G2q-mx-Oho" secondAttribute="bottom" constant="-8" id="ykZ-C4-iiB"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="0.30062603476821192" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="cellImage" destination="G2q-mx-Oho" id="gKJ-bE-gsx"/>
                                             <outlet property="dateLable" destination="rli-5n-N92" id="yic-vf-2Ey"/>
